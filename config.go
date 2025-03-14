@@ -10,8 +10,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/tryvium-travels/memongo/memongolog"
-	"github.com/tryvium-travels/memongo/mongobin"
+	"github.com/skyne/memongo/memongolog"
+	"github.com/skyne/memongo/mongobin"
 )
 
 // Options is the configuration options for a launched MongoDB binary

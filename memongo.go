@@ -71,7 +71,7 @@ func StartWithOptions(opts *Options) (*Server, error) {
 	majorVersionString := strings.Split(opts.MongoVersion, ".")[0]
 	if i, err := strconv.Atoi(majorVersionString); err == nil {
 		if i >= 7 {
-			engine = "inMempory"
+			engine = "inMemory"
 		}
 	} else {
 		logger.Warnf("error parsing major version: %s", err)

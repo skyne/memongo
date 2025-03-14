@@ -67,6 +67,16 @@ func StartWithOptions(opts *Options) (*Server, error) {
 
 	engine := "ephemeralForTest"
 	args := []string{"--dbpath", dbDir, "--port", strconv.Itoa(opts.Port)}
+
+	majorVersionString := strings.Split(opts.MongoVersion, ".")[0]
+	if i, err := strconv.Atoi(majorVersionString); err == nil {
+		if i >= 7 {
+			engine = "inMempory"
+		}
+	} else {
+		logger.Warnf("error parsing major version: %s", err)
+	}
+
 	if opts.ShouldUseReplica {
 		engine = "wiredTiger"
 		args = append(args, "--replSet", "rs0")
